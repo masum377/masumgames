@@ -1,0 +1,2087 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>MASUM & GAMES</title>
+
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+    color:white;
+
+    min-height:100vh;
+
+    background:
+    radial-gradient(
+        circle at top,
+        #253747 0%,
+        #111c27 35%,
+        #080f16 80%
+    );
+
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+
+    height:70px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 5%;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    background:
+    rgba(7,13,20,.88);
+
+    backdrop-filter:blur(15px);
+
+    border-bottom:
+    1px solid
+    rgba(255,255,255,.08);
+
+}
+
+
+.logo{
+
+    font-size:24px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+}
+
+
+.logo span{
+
+    color:#6c63ff;
+
+}
+
+
+.nav-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+
+.nav-right a{
+
+    color:#b7c0cb;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+}
+
+
+.nav-right a:hover{
+
+    color:white;
+
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+
+    text-align:center;
+
+    padding:
+    85px 20px 60px;
+
+}
+
+
+.hero small{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    background:
+    rgba(255,255,255,.05);
+
+    border:
+    1px solid
+    rgba(255,255,255,.1);
+
+    color:#aab5c2;
+
+}
+
+
+.hero h1{
+
+    font-size:
+    clamp(45px,8vw,78px);
+
+    margin:
+    20px 0 12px;
+
+    font-weight:900;
+
+    letter-spacing:-3px;
+
+}
+
+
+.hero h1 span{
+
+    color:#6d63ff;
+
+}
+
+
+.hero p{
+
+    color:#9da9b5;
+
+    max-width:650px;
+
+    margin:auto;
+
+    line-height:1.7;
+
+    font-size:16px;
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.tools{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:0 20px 30px;
+
+    display:flex;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.search{
+
+    flex:1;
+
+    min-width:220px;
+
+    background:#111b25;
+
+    border:
+    1px solid
+    rgba(255,255,255,.08);
+
+    border-radius:9px;
+
+    padding:13px 16px;
+
+    color:white;
+
+    outline:none;
+
+}
+
+
+.search::placeholder{
+
+    color:#687583;
+
+}
+
+
+.filter{
+
+    padding:13px 18px;
+
+    border-radius:9px;
+
+    background:#111b25;
+
+    color:white;
+
+    border:
+    1px solid
+    rgba(255,255,255,.08);
+
+    cursor:pointer;
+
+}
+
+
+/* =========================
+   GAME SECTION
+========================= */
+
+.container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:
+    0 20px 80px;
+
+}
+
+
+.section-head{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+
+.section-head h2{
+
+    font-size:28px;
+
+}
+
+
+.section-head span{
+
+    color:#7d8996;
+
+    font-size:14px;
+
+}
+
+
+/* =========================
+   GAME GRID
+========================= */
+
+.game-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(240px,1fr)
+    );
+
+    gap:18px;
+
+}
+
+
+/* =========================
+   GAME CARD
+========================= */
+
+.game-card{
+
+    background:#121b24;
+
+    border:
+    1px solid
+    rgba(255,255,255,.07);
+
+    border-radius:13px;
+
+    overflow:hidden;
+
+    transition:
+    transform .3s,
+    box-shadow .3s,
+    border .3s;
+
+}
+
+
+.game-card:hover{
+
+    transform:
+    translateY(-8px);
+
+    border-color:
+    rgba(108,99,255,.5);
+
+    box-shadow:
+    0 20px 45px
+    rgba(0,0,0,.35);
+
+}
+
+
+/* =========================
+   GAME PREVIEW
+========================= */
+
+.preview{
+
+    height:190px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+/* 2048 */
+
+.preview-2048{
+
+    background:
+    linear-gradient(
+        135deg,
+        #4d3518,
+        #1c1710
+    );
+
+}
+
+
+.tiles-2048{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,48px);
+
+    gap:5px;
+
+    transform:
+    rotate(-2deg);
+}
+
+
+.tiles-2048 div{
+
+    width:48px;
+
+    height:48px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:5px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+}
+
+
+.t1{background:#f5c842;color:#fff}
+.t2{background:#ff7b72;color:#fff}
+.t3{background:#f1e2c5;color:#777}
+.t4{background:#f49b27;color:#fff}
+.t5{background:#ffca28;color:#fff}
+.t6{background:#5a72ed;color:#fff}
+.t7{background:#8c63e8;color:#fff}
+
+
+/* SNAKE */
+
+.preview-snake{
+
+    background:
+    linear-gradient(
+        135deg,
+        #0e3428,
+        #071914
+    );
+
+}
+
+
+.snake-body{
+
+    width:145px;
+
+    height:30px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #28d982,
+        #78f0a5
+    );
+
+    border-radius:20px;
+
+    transform:
+    rotate(-12deg);
+
+    position:relative;
+
+}
+
+
+.snake-body::after{
+
+    content:"👀";
+
+    position:absolute;
+
+    right:-13px;
+
+    top:-15px;
+
+    font-size:25px;
+
+}
+
+
+/* XO */
+
+.preview-xo{
+
+    background:
+    linear-gradient(
+        135deg,
+        #292052,
+        #111020
+    );
+
+}
+
+
+.xo-board{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,55px);
+
+    gap:5px;
+
+}
+
+
+.xo-board div{
+
+    width:55px;
+
+    height:55px;
+
+    display:grid;
+
+    place-items:center;
+
+    background:#182133;
+
+    border-radius:6px;
+
+    font-size:30px;
+
+}
+
+
+/* PING PONG */
+
+.preview-ping{
+
+    background:
+    linear-gradient(
+        135deg,
+        #0a342b,
+        #071b18
+    );
+
+}
+
+
+.ping-table{
+
+    width:190px;
+
+    height:125px;
+
+    border:
+    2px solid
+    #35d09b;
+
+    position:relative;
+
+}
+
+
+.ping-table::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    bottom:0;
+
+    left:50%;
+
+    border-left:
+    2px dashed
+    rgba(255,255,255,.4);
+
+}
+
+
+.paddle{
+
+    width:8px;
+
+    height:45px;
+
+    background:#35d09b;
+
+    position:absolute;
+
+    top:38px;
+
+}
+
+
+.paddle.left{
+
+    left:8px;
+
+}
+
+
+.paddle.right{
+
+    right:8px;
+
+}
+
+
+.ball{
+
+    width:10px;
+
+    height:10px;
+
+    background:white;
+
+    border-radius:50%;
+
+    position:absolute;
+
+    left:90px;
+
+    top:58px;
+
+}
+
+
+/* BREAKOUT */
+
+.preview-breakout{
+
+    background:
+    #111827;
+
+}
+
+
+.bricks{
+
+    width:210px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(5,1fr);
+
+    gap:4px;
+
+}
+
+
+.bricks span{
+
+    height:14px;
+
+    border-radius:2px;
+
+    background:#ff5c64;
+
+}
+
+
+.bricks span:nth-child(2n){
+
+    background:#ffc928;
+
+}
+
+
+.bricks span:nth-child(3n){
+
+    background:#41d982;
+
+}
+
+
+.break-paddle{
+
+    position:absolute;
+
+    bottom:30px;
+
+    width:65px;
+
+    height:6px;
+
+    background:white;
+
+    border-radius:5px;
+
+}
+
+
+/* FLAPPY */
+
+.preview-flappy{
+
+    background:
+    linear-gradient(
+        #12608a,
+        #09283b
+    );
+
+}
+
+
+.bird{
+
+    font-size:45px;
+
+    position:absolute;
+
+    left:75px;
+
+    top:65px;
+
+}
+
+
+.pipe{
+
+    position:absolute;
+
+    width:35px;
+
+    background:#20a34b;
+
+    border:
+    3px solid
+    #087331;
+
+}
+
+
+.pipe.top{
+
+    height:70px;
+
+    top:0;
+
+    right:55px;
+
+}
+
+
+.pipe.bottom{
+
+    height:70px;
+
+    bottom:0;
+
+    right:55px;
+
+}
+
+
+/* MEMORY */
+
+.preview-memory{
+
+    background:
+    linear-gradient(
+        135deg,
+        #2b2146,
+        #11101b
+    );
+
+}
+
+
+.memory-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,42px);
+
+    gap:6px;
+
+}
+
+
+.memory-grid span{
+
+    width:42px;
+
+    height:42px;
+
+    display:grid;
+
+    place-items:center;
+
+    background:#5264a7;
+
+    border-radius:5px;
+
+    font-size:22px;
+
+}
+
+
+/* RPS */
+
+.preview-rps{
+
+    background:
+    linear-gradient(
+        135deg,
+        #263b61,
+        #111a2c
+    );
+
+    font-size:55px;
+
+    letter-spacing:10px;
+
+}
+
+
+/* BUBBLE */
+
+.preview-bubble{
+
+    background:
+    linear-gradient(
+        135deg,
+        #3b2255,
+        #11101b
+    );
+
+}
+
+
+.bubbles{
+
+    display:flex;
+
+    gap:12px;
+
+    align-items:center;
+
+}
+
+
+.bubbles span{
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:50%;
+
+    border:
+    3px solid
+    rgba(255,255,255,.6);
+
+    background:
+    rgba(120,210,255,.35);
+
+}
+
+
+.bubbles span:nth-child(2){
+
+    width:55px;
+
+    height:55px;
+
+    background:
+    rgba(255,100,180,.35);
+
+}
+
+
+.bubbles span:nth-child(3){
+
+    width:30px;
+
+    height:30px;
+
+    background:
+    rgba(150,255,150,.35);
+
+}
+
+
+/* =========================
+   CARD INFO
+========================= */
+
+.game-info{
+
+    padding:17px;
+
+}
+
+
+.game-info h3{
+
+    font-size:18px;
+
+    margin-bottom:7px;
+
+}
+
+
+.game-info p{
+
+    color:#7f8b98;
+
+    font-size:13px;
+
+    line-height:1.5;
+
+    min-height:39px;
+
+}
+
+
+.play{
+
+    display:block;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    color:white;
+
+    background:#252f3c;
+
+    padding:10px;
+
+    border-radius:7px;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    margin-top:13px;
+
+    transition:.3s;
+
+}
+
+
+.play:hover{
+
+    background:#6258ff;
+
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+
+    max-width:1050px;
+
+    margin:
+    0 auto 80px;
+
+    padding:0 20px;
+
+}
+
+
+.about-box{
+
+    padding:35px;
+
+    background:
+    rgba(255,255,255,.035);
+
+    border:
+    1px solid
+    rgba(255,255,255,.08);
+
+    border-radius:15px;
+
+}
+
+
+.about-box h2{
+
+    font-size:28px;
+
+    margin-bottom:18px;
+
+}
+
+
+.about-box p{
+
+    color:#aab5c1;
+
+    line-height:1.8;
+
+    margin-bottom:12px;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+    text-align:center;
+
+    padding:30px;
+
+    border-top:
+    1px solid
+    rgba(255,255,255,.08);
+
+    color:#687583;
+
+    font-size:13px;
+
+}
+
+
+footer strong{
+
+    color:#8d87ff;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .nav-right a{
+
+        display:none;
+
+    }
+
+
+    .hero{
+
+        padding-top:55px;
+
+    }
+
+
+    .game-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+        gap:12px;
+
+    }
+
+
+    .preview{
+
+        height:145px;
+
+    }
+
+
+    .game-info{
+
+        padding:13px;
+
+    }
+
+
+    .game-info h3{
+
+        font-size:15px;
+
+    }
+
+
+    .game-info p{
+
+        font-size:12px;
+
+    }
+
+
+    .tiles-2048{
+
+        transform:
+        scale(.75);
+
+    }
+
+
+    .xo-board{
+
+        transform:
+        scale(.75);
+
+    }
+
+}
+
+@media(max-width:420px){
+
+    .game-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        MASUM
+        <span>&</span>
+        GAMES
+
+    </div>
+
+
+    <div class="nav-right">
+
+        <a href="#">
+            Home
+        </a>
+
+        <a href="#games">
+            Games
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <small>
+        🎮 Welcome to MASUM & GAMES
+    </small>
+
+
+    <h1>
+
+        MASUM
+        <span>&</span>
+        GAMES
+
+    </h1>
+
+
+    <p>
+
+        Take a short break, pick a game,
+        and enjoy a little fun.
+        From classic challenges to quick
+        arcade games, there is always
+        something to play.
+
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     SEARCH
+========================= -->
+
+<div class="tools">
+
+    <input
+        class="search"
+        id="search"
+        type="text"
+        placeholder="🔍 Search games..."
+        onkeyup="searchGames()"
+    >
+
+
+    <select
+        class="filter"
+        id="filter"
+        onchange="filterGames()">
+
+        <option value="all">
+            All Games
+        </option>
+
+        <option value="puzzle">
+            Puzzle
+        </option>
+
+        <option value="arcade">
+            Arcade
+        </option>
+
+        <option value="classic">
+            Classic
+        </option>
+
+    </select>
+
+</div>
+
+
+
+<!-- =========================
+     GAMES
+========================= -->
+
+<section
+class="container"
+id="games">
+
+
+    <div class="section-head">
+
+        <h2>
+            🎮 Games
+        </h2>
+
+        <span>
+            10 games available
+        </span>
+
+    </div>
+
+
+
+    <div
+    class="game-grid"
+    id="gameGrid">
+
+
+        <!-- =================
+             2048
+        ================= -->
+
+        <div
+        class="game-card"
+        data-name="2048"
+        data-category="puzzle">
+
+            <div
+            class="preview
+            preview-2048">
+
+
+                <div
+                class="tiles-2048">
+
+                    <div class="t1">
+                        2048
+                    </div>
+
+                    <div class="t3">
+                        128
+                    </div>
+
+                    <div class="t4">
+                        8
+                    </div>
+
+                    <div class="t3">
+                        4
+                    </div>
+
+                    <div class="t4">
+                        16
+                    </div>
+
+                    <div class="t2">
+                        64
+                    </div>
+
+                    <div class="t5">
+                        256
+                    </div>
+
+                    <div class="t3">
+                        2
+                    </div>
+
+                    <div class="t6">
+                        512
+                    </div>
+
+                    <div class="t7">
+                        1024
+                    </div>
+
+                    <div class="t1">
+                        32
+                    </div>
+
+                    <div class="t3">
+                        4
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="game-info">
+
+                <h3>
+                    2048
+                </h3>
+
+                <p>
+                    Join the numbers and
+                    reach the 2048 tile.
+                </p>
+
+                <a
+                class="play"
+                href="games/2048.html">
+
+                    ▶ Play Game
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================
+             SNAKE
+        ================= -->
+
+        <div
+        class="game-card"
+        data-name="Snake"
+        data-category="classic">
+
+            <div
+            class="preview
+            preview-snake">
+
+                <div
+                class="snake-body">
+                </div>
+
+            </div>
+
+
+            <div class="game-info">
+
+                <h3>
+                    Snake
+                </h3>
+
+                <p>
+                    Eat, grow and survive
+                    as long as possible.
+                </p>
+
+                <a
+                class="play"
+                href="games/snake.html">
+
+                    ▶ Play Game
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================
+             TIC TAC TOE
+        ================= -->
+
+        <div
+        class="game-card"
+        data-name="Tic Tac Toe"
+        data-category="classic">
+
+            <div
+            class="preview
+            preview-xo">
+
+
+                <div
+                class="xo-board">
+
+                    <div>×</div>
+                    <div>○</div>
+                    <div></div>
+
+                    <div>○</div>
+                    <div>×</div>
+                    <div></div>
+
+                    <div></div>
+                    <div>○</div>
+                    <div>×</div>
+
+                </div>
+
+            </div>
+
+
+            <div class="game-info">
+
+                <h3>
+                    Tic Tac Toe
+                </h3>
+
+                <p>
+                    Get three in a row
+                    and win the match.
+                </p>
+
+                <a
+                class="play"
+                href="games/tictactoe.html">
+
+                    ▶ Play Game
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================
+             PING PONG
+        ================= -->
+
+        <div
+        class="game-card"
+        data-name="Ping Pong"
+        data-category="arcade">
+
+            <div
+            class="preview
+            preview-ping">
+
+
+                <div class="ping-table">
+
+                    <div
+                    class="paddle left">
+                    </div>
+
+                    <div
+                    class="paddle right">
+                    </div>
+
+                    <div class="ball">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="game-info">
+
+                <h3>
+                    Ping Pong
+                </h3>
+
+                <p>
+                    Keep the ball alive
+                    and beat your opponent.
+                </p>
+
+                <a
+                class="play"
+                href="games/pingpong.html">
+
+                    ▶ Play Game
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================
+             BREAKOUT
+        ================= -->
+
+        <div
+        class="game-card"
+        data-name="Breakout"
+        data-category="arcade">
+
+            <div
+            class="preview
+            preview-breakout">
+
+
+                <div class="bricks">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+                <div
+                class="break-paddle">
+                </div>
+
+            </div>
+
+
+            <div class="game-info">
+
+                <h3>
+                    Breakout
+                </h3>
+
+                <p>
+                    Break the blocks and
+                    clear the board.
+                </p>
+
+                <a
+                class="play"
+                href="games/breakout.html">
+
+                    ▶ Play Game
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================
+             FLAPPY BIRD
+        ================= -->
+
+        <div
+        class="game-card"
+        data-name="Flappy Bird"
+        data-category="arcade">
+
+            <div
+            class="preview
+            preview-flappy">
+
+
+                <div class="bird">
+                    🐤
+                </div>
+
+
+                <div
+                class="pipe top">
+                </div>
+
+
+                <div
+                class="pipe bottom">
+                </div>
+
+            </div>
+
+
+            <div class="game-info">
+
+                <h3>
+                    Flappy Bird
+                </h3>
+
+                <p>
+                    Fly through the pipes
+                    without crashing.
+                </p>
+
+                <a
+                class="play"
+                href="games/flappy.html">
+
+                    ▶ Play Game
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================
+             MEMORY
+        ================= -->
+
+        <div
+        class="game-card"
+        data-name="Memory Cards"
+        data-category="puzzle">
+
+            <div
+            class="preview
+            preview-memory">
+
+
+                <div
+                class="memory-grid">
+
+                    <span>?</span>
+                    <span>🍎</span>
+                    <span>?</span>
+                    <span>🍌</span>
+
+                    <span>🍇</span>
+                    <span>?</span>
+                    <span>🍎</span>
+                    <span>?</span>
+
+                    <span>?</span>
+                    <span>🍌</span>
+                    <span>?</span>
+                    <span>🍇</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="game-info">
+
+                <h3>
+                    Memory Cards
+                </h3>
+
+                <p>
+                    Find matching pairs
+                    and test your memory.
+                </p>
+
+                <a
+                class="play"
+                href="games/memory.html">
+
+                    ▶ Play Game
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================
+             ROCK PAPER SCISSORS
+        ================= -->
+
+        <div
+        class="game-card"
+        data-name="Rock Paper Scissors"
+        data-category="classic">
+
+            <div
+            class="preview
+            preview-rps">
+
+                🪨 📄 ✂️
+
+            </div>
+
+
+            <div class="game-info">
+
+                <h3>
+                    Rock Paper Scissors
+                </h3>
+
+                <p>
+                    Choose your move and
+                    beat the computer.
+                </p>
+
+                <a
+                class="play"
+                href="games/rps.html">
+
+                    ▶ Play Game
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================
+             BUBBLE POP
+        ================= -->
+
+        <div
+        class="game-card"
+        data-name="Bubble Pop"
+        data-category="arcade">
+
+            <div
+            class="preview
+            preview-bubble">
+
+
+                <div class="bubbles">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+            </div>
+
+
+            <div class="game-info">
+
+                <h3>
+                    Bubble Pop
+                </h3>
+
+                <p>
+                    Pop as many bubbles
+                    as you can.
+                </p>
+
+                <a
+                class="play"
+                href="games/bubble.html">
+
+                    ▶ Play Game
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================
+             COLOR MATCH
+        ================= -->
+
+        <div
+        class="game-card"
+        data-name="Color Match"
+        data-category="puzzle">
+
+            <div
+            class="preview"
+            style="
+            background:
+            linear-gradient(
+                135deg,
+                #42205d,
+                #11101a
+            );
+            ">
+
+                <div
+                style="
+                display:grid;
+                grid-template-columns:
+                repeat(3,50px);
+                gap:7px;
+                ">
+
+                    <span
+                    style="
+                    width:50px;
+                    height:50px;
+                    background:#ff5c67;
+                    border-radius:6px;
+                    "></span>
+
+                    <span
+                    style="
+                    width:50px;
+                    height:50px;
+                    background:#4fd989;
+                    border-radius:6px;
+                    "></span>
+
+                    <span
+                    style="
+                    width:50px;
+                    height:50px;
+                    background:#6b63ff;
+                    border-radius:6px;
+                    "></span>
+
+                    <span
+                    style="
+                    width:50px;
+                    height:50px;
+                    background:#ffc928;
+                    border-radius:6px;
+                    "></span>
+
+                    <span
+                    style="
+                    width:50px;
+                    height:50px;
+                    background:#ff8d42;
+                    border-radius:6px;
+                    "></span>
+
+                    <span
+                    style="
+                    width:50px;
+                    height:50px;
+                    background:#48b8ff;
+                    border-radius:6px;
+                    "></span>
+
+                </div>
+
+            </div>
+
+
+            <div class="game-info">
+
+                <h3>
+                    Color Match
+                </h3>
+
+                <p>
+                    Match the right colors
+                    before time runs out.
+                </p>
+
+                <a
+                class="play"
+                href="games/color-match.html">
+
+                    ▶ Play Game
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section
+class="about"
+id="about">
+
+    <div class="about-box">
+
+        <h2>
+            🎮 About MASUM & GAMES
+        </h2>
+
+        <p>
+
+            Welcome to
+            <strong>MASUM & GAMES</strong> —
+            a little place for fun,
+            quick challenges, and
+            relaxing gaming moments.
+
+        </p>
+
+
+        <p>
+
+            Pick a game, take a break,
+            challenge yourself, and
+            enjoy a few minutes of
+            simple entertainment.
+
+        </p>
+
+
+        <p>
+
+            There is always another
+            game waiting for you.
+            Have fun and keep playing! 🎮
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026–Present
+    <strong>
+        MASUM & GAMES
+    </strong>
+    — All Rights Reserved.
+
+</footer>
+
+
+
+<script>
+
+/* =========================
+   SEARCH
+========================= */
+
+function searchGames(){
+
+    let search =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+
+    let cards =
+        document
+        .querySelectorAll(".game-card");
+
+
+    cards.forEach(card => {
+
+        let name =
+            card
+            .dataset
+            .name
+            .toLowerCase();
+
+
+        if(name.includes(search)){
+
+            card.style.display="block";
+
+        }
+
+        else{
+
+            card.style.display="none";
+
+        }
+
+    });
+
+}
+
+
+/* =========================
+   FILTER
+========================= */
+
+function filterGames(){
+
+    let filter =
+        document
+        .getElementById("filter")
+        .value;
+
+
+    let cards =
+        document
+        .querySelectorAll(".game-card");
+
+
+    cards.forEach(card => {
+
+        if(
+            filter === "all" ||
+            card.dataset.category === filter
+        ){
+
+            card.style.display="block";
+
+        }
+
+        else{
+
+            card.style.display="none";
+
+        }
+
+    });
+
+}
+
+</script>
+
+
+</body>
+
+</html>
